@@ -1,0 +1,70 @@
+{
+  "name": "decidim-module-iframe",
+  "version": "0.10.2",
+  "description": "Mods and tweaks for Decidim",
+  "main": "index.js",
+  "directories": {
+    "example": "examples",
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint -c .eslintrc.json --ext .js app/packs/",
+    "lint-fix": "eslint -c .eslintrc.json --ext .js app/packs/ --fix",
+    "stylelint": "stylelint **/*.scss",
+    "stylelint-fix": "stylelint **/*.scss --fix"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mainio/decidim-module-iframe.git"
+  },
+  "keywords": [
+    "decidim"
+  ],
+  "author": "joonas.aapro@mainiotech.fi",
+  "license": "AGPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/mainio/decidim-module-iframe/issues"
+  },
+  "homepage": "https://github.com/mainio/decidim-module-iframe#readme",
+  "stylelint": {
+    "extends": "@decidim/stylelint-config",
+    "rules": {
+      "block-opening-brace-space-before": "always"
+    }
+  },
+  "devDependencies": {
+    "@babel/eslint-parser": "^7.19.1",
+    "@babel/plugin-proposal-class-properties": "^7.18.6",
+    "@babel/plugin-proposal-private-methods": "^7.18.6",
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+    "@babel/plugin-transform-classes": "^7.20.7",
+    "@babel/plugin-transform-regenerator": "^7.20.5",
+    "@babel/plugin-transform-runtime": "^7.19.6",
+    "@babel/preset-env": "^7.20.2",
+    "@babel/preset-react": "^7.18.6",
+    "@decidim/dev": "0.27.4",
+    "@decidim/eslint-config": "0.27.4",
+    "@decidim/stylelint-config": "0.27.4",
+    "eslint-config-prettier": "^8.2.0",
+    "eslint-config-standard": "^11.0.0",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-standard": "^3.1.0",
+    "sass-embedded": "~1.57.1"
+  },
+  "dependencies": {
+    "@rails/actioncable": "^6.1.7-6",
+    "codemirror": "^5.65.0",
+    "europa": "^4.0.0",
+    "form-storage": "^1.3.5",
+    "formBuilder": "^3.6.1",
+    "highlight.js": "^11.4.0",
+    "inline-attachment": "^2.0.3",
+    "inscrybmde": "^1.11.6",
+    "jquery-ui": "^1.13.0",
+    "jsrender": "^1.0.9",
+    "leaflet.featuregroup.subgroup": "^1.0.2",
+    "marked": "^5.1.2",
+    "select2": "^4.1.0-rc.0"
+  }
+}

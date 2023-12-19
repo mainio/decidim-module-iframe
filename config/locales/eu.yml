@@ -1,0 +1,10 @@
+---
+eu:
+  decidim:
+    components:
+      iframe:
+        settings:
+          global:
+            announcement: Oharra
+          step:
+            announcement: Oharra

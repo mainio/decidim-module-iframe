@@ -1,0 +1,13 @@
+---
+sv:
+  decidim:
+    components:
+      iframe:
+        name: Fullskärm Iframe
+        settings:
+          global:
+            announcement: Meddelande
+            iframe: Iframe kod
+          step:
+            announcement: Meddelande
+            iframe: Iframe kod
