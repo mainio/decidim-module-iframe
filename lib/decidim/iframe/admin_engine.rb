@@ -4,7 +4,6 @@ module Decidim
   module Iframe
     # This is the engine that runs on the public interface of `Iframe`.
     class AdminEngine < ::Rails::Engine
-
       paths["db/migrate"] = nil
       paths["lib/tasks"] = nil
 
