@@ -11,19 +11,6 @@ module Decidim
 
       routes do
         root to: "iframe#settings"
-
-        # Add admin engine routes here
-        resources :constraints
-        resources :custom_redirects, except: [:show]
-        resources :config, param: :var, only: [:show, :update]
-        resources :scoped_styles, param: :var, only: [:create, :destroy]
-        resources :scoped_admins, param: :var, only: [:create, :destroy]
-        get :admin_accountability, to: "admin_accountability#index", as: "admin_accountability"
-        post :export_admin_accountability, to: "admin_accountability#export", as: "export_admin_accountability"
-        get :users, to: "config#users"
-        post :rename_scope_label, to: "config#rename_scope_label"
-        get :checks, to: "checks#index"
-        post :migrate_images, to: "checks#migrate_images"
       end
 
       initializer "decidim_iframe.admin_mount_routes" do

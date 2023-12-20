@@ -4,9 +4,6 @@ module Decidim
   module Iframe
     include ActiveSupport::Configurable
 
-    autoload :Config, "decidim/iframe/config"
-    autoload :SystemChecker, "decidim/iframe/system_checker"
-
     def self.registered_components
       @registered_components ||= []
     end
