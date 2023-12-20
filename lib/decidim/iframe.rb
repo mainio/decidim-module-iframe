@@ -4,7 +4,6 @@ require "decidim/iframe/iframe"
 require "decidim/iframe/engine"
 require "decidim/iframe/component"
 require "decidim/iframe/admin_engine"
-require "decidim/iframe/context_analyzers"
 
 # Engines to handle logic unrelated to participatory spaces or components
 

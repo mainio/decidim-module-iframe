@@ -35,11 +35,6 @@ module Decidim
         Decidim.register_assets_path File.expand_path("app/packs", root)
       end
 
-      # Votings may override proposals cells, let's be sure to add these paths after the proposal component initializer
-      initializer "decidim_iframe.add_cells_view_paths", before: "decidim_proposals.add_cells_view_paths" do
-        Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Iframe::Engine.root}/app/views")
-      end
-
       def load_seed
         nil
       end
