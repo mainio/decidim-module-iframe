@@ -3,8 +3,8 @@
 require "decidim/components/namer"
 
 Decidim::Iframe.register_component(:iframe) do |component|
-  component.engine = Decidim::Iframe::IframeComponent::Engine
-  component.admin_engine = Decidim::Iframe::IframeComponent::AdminEngine
+  component.engine = Decidim::Iframe::Engine
+  component.admin_engine = Decidim::Iframe::AdminEngine
   component.icon = "media/images/decidim_meetings.svg" # TODO: create a Icon
   component.permissions_class_name = "Decidim::Iframe::Permissions"
 

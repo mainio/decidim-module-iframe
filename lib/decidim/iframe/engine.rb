@@ -11,7 +11,7 @@ module Decidim
       isolate_namespace Decidim::Iframe
 
       routes do
-        post :editor_images, to: "editor_images#create"
+        root to: "iframe#show"
       end
 
       # Prepare a zone to create overrides
@@ -38,6 +38,10 @@ module Decidim
       # Votings may override proposals cells, let's be sure to add these paths after the proposal component initializer
       initializer "decidim_iframe.add_cells_view_paths", before: "decidim_proposals.add_cells_view_paths" do
         Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Iframe::Engine.root}/app/views")
+      end
+
+      def load_seed
+        nil
       end
     end
   end

@@ -4,10 +4,14 @@ module Decidim
   module Iframe
     # This is the engine that runs on the public interface of `Iframe`.
     class AdminEngine < ::Rails::Engine
+      isolate_namespace Decidim::Iframe
+
       paths["db/migrate"] = nil
       paths["lib/tasks"] = nil
 
       routes do
+        root to: "iframe#settings"
+
         # Add admin engine routes here
         resources :constraints
         resources :custom_redirects, except: [:show]
@@ -20,7 +24,6 @@ module Decidim
         post :rename_scope_label, to: "config#rename_scope_label"
         get :checks, to: "checks#index"
         post :migrate_images, to: "checks#migrate_images"
-        root to: "config#show"
       end
 
       initializer "decidim_iframe.admin_mount_routes" do
