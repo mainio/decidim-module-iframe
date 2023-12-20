@@ -2,13 +2,7 @@
 
 version="last"
 prefix=
-if [ "$BUNDLE_GEMFILE" == "Gemfile.legacy" ]; then
-	version="legacy"
-	prefix="BUNDLE_GEMFILE=$BUNDLE_GEMFILE RBENV_VERSION=$RBENV_VERSION"
-	echo "Using legacy version (gemfile: $BUNDLE_GEMFILE, ruby: $RBENV_VERSION)"
-else
-	echo "Using latest version"
-fi
+echo "Using latest version"
 
 cd spec
 # check if directory exists
@@ -29,11 +23,7 @@ fi
 if [ "$1" == "--reset" ]; then
 	echo "Reseting the database"
 	cd decidim_dummy_app
-	if [ "$BUNDLE_GEMFILE" == "Gemfile.legacy" ]; then
-		BUNDLE_GEMFILE="../../Gemfile.legacy" RAILS_ENV=test bundle exec rake db:drop db:create db:schema:load
-	else
-		RAILS_ENV=test bundle exec rake db:drop db:create db:schema:load
-	fi
+	RAILS_ENV=test bundle exec rake db:drop db:create db:schema:load
 else
 	cd ..
 	bundle exec rspec $@
