@@ -1,40 +1,21 @@
 name: "[CI] Lint"
-
 on:
   push:
     branches:
+      - develop
       - main
+      - release/*
   pull_request:
 
-env:
-  RUBY_VERSION: 3.0.6
-  NODE_VERSION: 16.9.1
+concurrency:
+  group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
+  cancel-in-progress: true
 
 jobs:
-  lint-report:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 1
-
-      - uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: ${{ env.RUBY_VERSION }}
-          bundler-cache: true
-
-      - uses: actions/setup-node@master
-        with:
-          node-version: ${{ env.NODE_VERSION }}
-
-      - run: npm ci
-        name: Install JS deps
-
-      - run: bundle exec rubocop -P
-        name: Lint Ruby files
-
-      - run: npm run stylelint
-        name: Lint SCSS files
-
-      - run: bundle exec erblint app/**/*.erb
-        name: Lint ERB files
+  lint:
+    name: Lint code
+    uses: mainio/gha-decidim-module/.github/workflows/lint.yml@main
+    secrets: inherit
+    with:
+      eslint: true
+      stylelint: true

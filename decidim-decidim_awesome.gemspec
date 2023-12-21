@@ -20,11 +20,11 @@ Gem::Specification.new do |s|
 
   s.files = Dir["{app,config,lib,vendor,db}/**/*", "LICENSE-AGPLv3.txt", "Rakefile", "package.json", "README.md", "CHANGELOG.md"]
 
-  s.add_dependency "decidim-admin", Decidim::Iframe::COMPAT_DECIDIM_VERSION
-  s.add_dependency "decidim-core", Decidim::Iframe::COMPAT_DECIDIM_VERSION
+  s.add_dependency "decidim-admin", Decidim::Iframe::DECIDIM_VERSION
+  s.add_dependency "decidim-core", Decidim::Iframe::DECIDIM_VERSION
   s.add_dependency "deface", ">= 1.5"
   s.add_dependency "sassc", "~> 2.3" # TODO: check if this can be removed
 
-  s.add_development_dependency "decidim-dev", Decidim::Iframe::COMPAT_DECIDIM_VERSION
+  s.add_development_dependency "decidim-dev", Decidim::Iframe::DECIDIM_VERSION
   s.metadata["rubygems_mfa_required"] = "true"
 end
