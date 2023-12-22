@@ -3,16 +3,29 @@ fi:
   decidim:
     components:
       iframe:
-        name: Koko näytön Iframe
+        name: Koko näytön Iframe -elementti
         settings:
           global:
             announcement: Ilmoitus
-            iframe: Iframe koodi
-            iframe_help: 'Syötä koodisi HTML -muodossa: <iframe width="100%" height="700"
-              frameBorder="0" allowFullscreen src="..."></iframe>. Sisältö siistitään muista
-              HTML -tageista. Käytä 100% leveyttä täyttääksesi näytön.'
-            no_margins: Ei reunuksia Iframen ja muun sivuston välissä
+            src: Sisällön lähde
+            src_help: 'Syötä Iframe -elementin sisällön lähteen polku.'
+            width: Sisällön leveys
+            width_help: 'Käytä 100% leveyttä täyttääksesi näytön.'
+            height: Sisällön korkeus
+            height_help: 'Iframe -elementin korkeus.'
+            frameborder: Sisällön kehys
+            frameborder_help: 'Aseta arvo "1" lisätäksesi kehys Iframe -elementille,
+              aseta arvo "0" jos et halua kehystä.'
+            no_margins: Ei reunuksia Iframe -elementin ja muun sivuston välissä
             viewport_width: Rajaa maksimi-leveys sovelluksen ikkunaan
           step:
             announcement: Ilmoitus
-            iframe: Iframe koodi
+            src: Sisällön lähde
+            src_help: 'Syötä Iframe -elementin sisällön lähteen polku.'
+            width: Sisällön leveys
+            width_help: 'Käytä 100% leveyttä täyttääksesi näytön.'
+            height: Sisällön korkeus
+            height_help: 'Iframe -elementin korkeus.'
+            frameborder: Sisällön kehys
+            frameborder_help: 'Aseta arvo "1" lisätäksesi kehys Iframe -elementille,
+              aseta arvo "0" jos et halua kehystä.'

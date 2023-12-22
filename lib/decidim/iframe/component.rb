@@ -15,14 +15,20 @@ Decidim::Iframe.register_component(:iframe) do |component|
     # Add your global settings
     # Available types: :integer, :boolean
     settings.attribute :announcement, type: :text, translated: true, editor: true
-    settings.attribute :iframe, type: :text, default: ""
+    settings.attribute :src, type: :text, default: ""
+    settings.attribute :width, type: :text, default: ""
+    settings.attribute :height, type: :text, default: ""
+    settings.attribute :frameborder, type: :text, default: ""
     settings.attribute :viewport_width, type: :boolean, default: false
     settings.attribute :no_margins, type: :boolean, default: false
   end
 
   component.settings(:step) do |settings|
     # Add your settings per step
-    settings.attribute :iframe, type: :text, default: ""
+    settings.attribute :src, type: :text, default: ""
+    settings.attribute :width, type: :text, default: ""
+    settings.attribute :height, type: :text, default: ""
+    settings.attribute :frameborder, type: :text, default: ""
   end
 
   # component.register_stat :some_stat do |context, start_at, end_at|
@@ -43,7 +49,10 @@ Decidim::Iframe.register_component(:iframe) do |component|
       participatory_space: participatory_space,
       settings: {
         announcement: { en: Faker::Lorem.paragraphs(number: 2).join("\n") },
-        iframe: '<iframe src="https://picsum.photos/800/600" width="100%" height="700" frameborder="0"></iframe>'
+        src: "https://picsum.photos/800/600",
+        width: "100%",
+        height: "700",
+        frameborder: "0"
       }
     }
 
