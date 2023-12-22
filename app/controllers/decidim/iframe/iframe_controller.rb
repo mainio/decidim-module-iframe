@@ -12,11 +12,11 @@ module Decidim
 
       def iframe
         @iframe ||= sanitize(
-          "<iframe src=\"#{settings.src}\" width=\"#{settings.width}\" height=\"#{settings.height}\" frameborder=\"#{settings.frameborder}\"></iframe>"
+          "<iframe src=\"#{attributes.src}\" width=\"#{attributes.width}\" height=\"#{attributes.height}\" frameborder=\"#{attributes.frameborder}\"></iframe>"
         ).html_safe
       end
 
-      def settings
+      def attributes
         current_component.settings
       end
 
