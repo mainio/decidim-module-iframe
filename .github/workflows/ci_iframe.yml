@@ -16,6 +16,10 @@ jobs:
     name: Build test application
     uses: mainio/gha-decidim-module/.github/workflows/build_app.yml@main
     secrets: inherit
+    steps:
+      - uses: nanasess/setup-chromedriver@v2
+        with:
+          chromedriver-version: 119.0.6045.105
   main:
     needs: build_app
     name: Tests
