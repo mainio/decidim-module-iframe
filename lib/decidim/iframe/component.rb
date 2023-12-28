@@ -11,24 +11,26 @@ Decidim::Iframe.register_component(:iframe) do |component|
   # These actions permissions can be configured in the admin panel
   # component.actions = %w()
 
+  RESIZE_OPTIONS = %w(responsive manual).freeze
+
   component.settings(:global) do |settings|
     # Add your global settings
     # Available types: :integer, :boolean
     settings.attribute :announcement, type: :text, translated: true, editor: true
-    settings.attribute :src, type: :text, default: ""
-    settings.attribute :width, type: :text, default: ""
-    settings.attribute :height, type: :text, default: ""
-    settings.attribute :frameborder, type: :text, default: ""
+    settings.attribute :src, type: :string, default: ""
+    settings.attribute :width, type: :string, default: ""
+    settings.attribute :frameborder, type: :integer, default: ""
     settings.attribute :viewport_width, type: :boolean, default: false
     settings.attribute :no_margins, type: :boolean, default: false
+    settings.attribute :resize_iframe, type: :select, default: "responsive", choices: -> { RESIZE_OPTIONS }
+    settings.attribute :height, type: :string, default: ""
   end
 
   component.settings(:step) do |settings|
     # Add your settings per step
-    settings.attribute :src, type: :text, default: ""
-    settings.attribute :width, type: :text, default: ""
-    settings.attribute :height, type: :text, default: ""
-    settings.attribute :frameborder, type: :text, default: ""
+    settings.attribute :src, type: :string, default: ""
+    settings.attribute :width, type: :string, default: ""
+    settings.attribute :frameborder, type: :integer, default: ""
   end
 
   # component.register_stat :some_stat do |context, start_at, end_at|
@@ -49,10 +51,11 @@ Decidim::Iframe.register_component(:iframe) do |component|
       participatory_space: participatory_space,
       settings: {
         announcement: { en: Faker::Lorem.paragraphs(number: 2).join("\n") },
-        src: "https://picsum.photos/800/600",
+        src: "",
         width: "100%",
-        height: "700",
-        frameborder: "0"
+        frameborder: "0",
+        resize_iframe: "responsive",
+        height: ""
       }
     }
 

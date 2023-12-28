@@ -19,6 +19,10 @@ en:
               set value "0" for no border.'
             no_margins: No margins between the iframe and the rest of the page
             viewport_width: Limit maximum width to the application viewport
+            resize_iframe: Resize Iframe
+            resize_iframe_options:
+              responsive: Resize automatically
+              manual: Resize manually
           step:
             announcement: Announcement
             src: Content source

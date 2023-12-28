@@ -3,8 +3,8 @@
 module Decidim
   module Iframe
     class IframeController < Iframe::BlankComponentController
-      ALLOWED_ATTRIBUTES = %w(src width height frameborder title allow allowpaymentrequest name referrerpolicy sandbox srcdoc allowfullscreen).freeze
-      helper_method :iframe, :remove_margins?, :viewport_width?
+      ALLOWED_ATTRIBUTES = %w(src id width height frameborder title allow allowpaymentrequest name referrerpolicy sandbox srcdoc allowfullscreen).freeze
+      helper_method :iframe, :remove_margins?, :viewport_width?, :resize_iframe
 
       def show; end
 
@@ -12,12 +12,27 @@ module Decidim
 
       def iframe
         @iframe ||= sanitize(
-          "<iframe src=\"#{attributes.src}\" width=\"#{attributes.width}\" height=\"#{attributes.height}\" frameborder=\"#{attributes.frameborder}\"></iframe>"
+          element
         ).html_safe
+      end
+
+      def element
+        case resize_iframe
+        when "responsive"
+          "<iframe id=\"iFrame\" src=\"#{attributes.src}\" width=\"#{attributes.width}\"
+          frameborder=\"#{attributes.frameborder}\"></iframe>"
+        when "manual"
+          "<iframe id=\"iFrame\" src=\"#{attributes.src}\" width=\"#{attributes.width}\"
+          height=\"#{attributes.height}\"frameborder=\"#{attributes.frameborder}\"></iframe>"
+        end
       end
 
       def attributes
         current_component.settings
+      end
+
+      def resize_iframe
+        attributes.resize_iframe
       end
 
       def sanitize(html)

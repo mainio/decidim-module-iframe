@@ -10,3 +10,7 @@
 <div class="iframe<%= " row" if viewport_width? %>">
   <%= iframe %>
 </div>
+
+<% if resize_iframe == "responsive" %>
+  <%= javascript_pack_tag("decidim_iframe") %>
+<% end %>

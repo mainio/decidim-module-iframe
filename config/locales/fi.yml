@@ -18,6 +18,10 @@ fi:
               aseta arvo "0" jos et halua kehystä.'
             no_margins: Ei reunuksia Iframe -elementin ja muun sivuston välissä
             viewport_width: Rajaa maksimi-leveys sovelluksen ikkunaan
+            resize_iframe: Iframe -elementin koko
+            resize_iframe_options:
+              responsive: Automaattinen koko
+              manual: Manuaalinen koko
           step:
             announcement: Ilmoitus
             src: Sisällön lähde
