@@ -11,8 +11,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint -c .eslintrc.json --ext .js app/packs/",
     "lint-fix": "eslint -c .eslintrc.json --ext .js app/packs/ --fix",
-    "stylelint": "stylelint ",
-    "stylelint-fix": "stylelint --fix"
+    "stylelint": "stylelint **/*.scss",
+    "stylelint-fix": "stylelint **/*.scss --fix"
   },
   "repository": {
     "type": "git",
