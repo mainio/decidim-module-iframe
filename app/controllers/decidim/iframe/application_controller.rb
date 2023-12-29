@@ -6,9 +6,6 @@ module Decidim
     # this engine inherit.
     #
     class ApplicationController < Decidim::ApplicationController
-      def permission_class_chain
-        [::Decidim::Iframe::Permissions] + super
-      end
     end
   end
 end

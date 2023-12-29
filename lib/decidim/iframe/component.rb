@@ -6,10 +6,6 @@ Decidim::Iframe.register_component(:iframe) do |component|
   component.engine = Decidim::Iframe::Engine
   component.admin_engine = Decidim::Iframe::AdminEngine
   component.icon = "media/images/decidim_meetings.svg" # TODO: create a Icon
-  component.permissions_class_name = "Decidim::Iframe::Permissions"
-
-  # These actions permissions can be configured in the admin panel
-  # component.actions = %w()
 
   RESIZE_OPTIONS = %w(responsive manual).freeze
 
