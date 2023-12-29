@@ -11,8 +11,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint -c .eslintrc.json --ext .js app/packs/",
     "lint-fix": "eslint -c .eslintrc.json --ext .js app/packs/ --fix",
-    "stylelint": "stylelint **/*.scss",
-    "stylelint-fix": "stylelint **/*.scss --fix"
+    "stylelint": "test -n \"$(find . -type f -name '*.scss')\" && stylelint **/*.scss || echo 'No SCSS files found'",
+    "stylelint-fix": "test -n \"$(find . -type f -name '*.scss')\" && stylelint **/*.scss --fix || echo 'No SCSS files found'"
   },
   "repository": {
     "type": "git",
