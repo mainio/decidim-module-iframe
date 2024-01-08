@@ -11,7 +11,6 @@ end
 
 def copy_helpers
   FileUtils.mkdir_p "spec/decidim_dummy_app/app/views/v0.11", verbose: true
-  FileUtils.cp_r "lib/decidim/iframe/test/layouts", "spec/decidim_dummy_app/app/views/v0.11/layouts", verbose: true
 end
 
 desc "Generates a dummy app for testing"
@@ -34,6 +33,5 @@ task :development_app do
     )
   end
 
-  override_webpacker_config_files("development_app")
   seed_db("development_app")
 end
