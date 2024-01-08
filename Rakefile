@@ -3,12 +3,6 @@
 require "decidim/dev/common_rake"
 require "fileutils"
 
-def override_webpacker_config_files(path)
-  Dir.chdir(path) do
-    system("bundle exec rake decidim_iframe:webpacker:install")
-  end
-end
-
 def seed_db(path)
   Dir.chdir(path) do
     system("bundle exec rake db:seed")
@@ -23,7 +17,6 @@ end
 desc "Generates a dummy app for testing"
 task test_app: "decidim:generate_external_test_app" do
   ENV["RAILS_ENV"] = "test"
-  override_webpacker_config_files("spec/decidim_dummy_app")
   copy_helpers
 end
 
