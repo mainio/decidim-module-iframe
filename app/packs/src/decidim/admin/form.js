@@ -2,10 +2,10 @@ import "src/decidim/admin/scope_picker_enabler.component"
 import "src/decidim/admin/proposal_infinite_edit"
 import "src/decidim/admin/iframe_resize_toggler"
 
+// Overwrite core form.js file to import iframe_resize_toggler
+
 import BudgetRuleTogglerComponent from "src/decidim/admin/budget_rule_toggler.component"
 
-// Checks if the form contains fields with special CSS classes added in
-// Decidim::Admin::SettingsHelper and acts accordingly.
 $(() => {
   const budgetRuleToggler = new BudgetRuleTogglerComponent({
     ruleCheckboxes: $("input[id^='component_settings_vote_rule_']")
@@ -13,7 +13,6 @@ $(() => {
 
   budgetRuleToggler.run();
 
-  // Prevents readonly containers from being modified.
   const $readonlyContainer = $(".readonly_container input");
 
   $readonlyContainer.click((event) => {
@@ -21,15 +20,6 @@ $(() => {
     return false;
   });
 
-  // Target fields:
-  // - amendments_wizard_help_text
-  // - amendments_visibility
-  // - amendment_creation_enabled
-  // - amendment_reaction_enabled
-  // - amendment_promotion_enabled
-
-  // (1) Hides target fields if amendments_enabled component setting is NOT checked.
-  // (2) Toggles visibilty of target fields when amendments_enabled component setting is clicked.
   const $amendmentsEnabled = $("input#component_settings_amendments_enabled");
 
   if ($amendmentsEnabled.length > 0) {

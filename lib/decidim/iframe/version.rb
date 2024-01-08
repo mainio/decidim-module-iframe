@@ -3,7 +3,7 @@
 module Decidim
   # This holds the decidim-iframe version.
   module Iframe
-    VERSION = "0.10.2"
+    VERSION = "0.1"
     DECIDIM_VERSION = "~> 0.27.4"
   end
 end

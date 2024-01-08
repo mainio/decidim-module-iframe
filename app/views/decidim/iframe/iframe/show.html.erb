@@ -1,10 +1,10 @@
 <%= announcement = render(partial: "decidim/shared/component_announcement") %>
 
 <style rel="stylesheet" type="text/css">
-<% if remove_margins? %>
-  <%= ".wrapper { padding-left: 0;padding-right: 0;padding-bottom: 0; }" %>
-  <%= ".wrapper { padding-top: 0; }" unless announcement.present? %>
-<% end %>
+  <% if remove_margins? %>
+    <%= ".wrapper { padding-left: 0;padding-right: 0;padding-bottom: 0; }" %>
+    <%= ".wrapper { padding-top: 0; }" unless announcement.present? %>
+  <% end %>
 </style>
 
 <div class="iframe<%= " row" if viewport_width? %>">

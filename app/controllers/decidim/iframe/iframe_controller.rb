@@ -3,10 +3,7 @@
 module Decidim
   module Iframe
     class IframeController < Iframe::BlankComponentController
-      ALLOWED_ATTRIBUTES = %w(src id width height frameborder title allow allowpaymentrequest name referrerpolicy sandbox srcdoc allowfullscreen).freeze
       helper_method :iframe, :remove_margins?, :viewport_width?, :resize_iframe
-
-      def show; end
 
       private
 
@@ -17,13 +14,15 @@ module Decidim
       end
 
       def element
+        settings = attributes
+
         case resize_iframe
         when "responsive"
-          "<iframe id=\"iFrame\" src=\"#{attributes.src}\" width=\"#{attributes.width}\"
-          frameborder=\"#{attributes.frameborder}\"></iframe>"
+          "<iframe id=\"iFrame\" src=\"#{settings.src}\" width=\"#{settings.width}\"
+          frameborder=\"#{settings.frameborder}\"></iframe>"
         when "manual"
-          "<iframe id=\"iFrame\" src=\"#{attributes.src}\" width=\"#{attributes.width}\"
-          height=\"#{attributes.height}\"frameborder=\"#{attributes.frameborder}\"></iframe>"
+          "<iframe id=\"iFrame\" src=\"#{attributes.src}\" width=\"#{settings.width}\"
+          height=\"#{settings.height}\"frameborder=\"#{settings.frameborder}\"></iframe>"
         end
       end
 
@@ -37,15 +36,15 @@ module Decidim
 
       def sanitize(html)
         sanitizer = Rails::Html::SafeListSanitizer.new
-        sanitizer.sanitize(html, tags: %w(iframe), attributes: ALLOWED_ATTRIBUTES)
+        sanitizer.sanitize(html, tags: %w(iframe), attributes: %w(src id width height frameborder))
       end
 
       def remove_margins?
-        current_component.settings.no_margins
+        attributes.no_margins
       end
 
       def viewport_width?
-        current_component.settings.viewport_width
+        attributes.viewport_width
       end
     end
   end

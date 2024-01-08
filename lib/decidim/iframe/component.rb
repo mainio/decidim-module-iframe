@@ -14,8 +14,8 @@ Decidim::Iframe.register_component(:iframe) do |component|
     # Available types: :integer, :boolean
     settings.attribute :announcement, type: :text, translated: true, editor: true
     settings.attribute :src, type: :string, default: ""
-    settings.attribute :width, type: :string, default: ""
-    settings.attribute :frameborder, type: :integer, default: ""
+    settings.attribute :width, type: :string, default: "100%"
+    settings.attribute :frameborder, type: :integer, default: "0"
     settings.attribute :viewport_width, type: :boolean, default: false
     settings.attribute :no_margins, type: :boolean, default: false
     settings.attribute :resize_iframe, type: :select, default: "responsive", choices: -> { RESIZE_OPTIONS }
@@ -25,8 +25,8 @@ Decidim::Iframe.register_component(:iframe) do |component|
   component.settings(:step) do |settings|
     # Add your settings per step
     settings.attribute :src, type: :string, default: ""
-    settings.attribute :width, type: :string, default: ""
-    settings.attribute :frameborder, type: :integer, default: ""
+    settings.attribute :width, type: :string, default: "100%"
+    settings.attribute :frameborder, type: :integer, default: "0"
   end
 
   # component.register_stat :some_stat do |context, start_at, end_at|

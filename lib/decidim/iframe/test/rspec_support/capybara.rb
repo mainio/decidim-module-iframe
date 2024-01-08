@@ -1,5 +1,9 @@
 # frozen_string_literal: true
 
+# This re-registration file is made because of problems with chromedriver v.120
+# Selenium methods are undefined without this change
+# More info in PR #12160
+
 require "selenium-webdriver"
 
 module Decidim

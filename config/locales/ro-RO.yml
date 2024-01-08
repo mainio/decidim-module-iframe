@@ -1,9 +1,0 @@
----
-ro:
-  decidim:
-    components:
-      iframe:
-        settings:
-          global:
-            announcement: Anunț
-            iframe: Cod Iframe
