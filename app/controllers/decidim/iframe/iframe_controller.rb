@@ -14,20 +14,18 @@ module Decidim
       end
 
       def element
-        settings = attributes
-
         case resize_iframe
         when "responsive"
-          "<iframe id=\"iFrame\" src=\"#{settings.src}\" width=\"#{settings.width}\"
-          frameborder=\"#{settings.frameborder}\"></iframe>"
+          "<iframe id=\"iFrame\" src=\"#{attributes.src}\" width=\"#{attributes.width}\"
+          frameborder=\"#{attributes.frameborder}\"></iframe>"
         when "manual"
-          "<iframe id=\"iFrame\" src=\"#{attributes.src}\" width=\"#{settings.width}\"
-          height=\"#{settings.height}\"frameborder=\"#{settings.frameborder}\"></iframe>"
+          "<iframe id=\"iFrame\" src=\"#{attributes.src}\" width=\"#{attributes.width}\"
+          height=\"#{attributes.height}\"frameborder=\"#{attributes.frameborder}\"></iframe>"
         end
       end
 
       def attributes
-        current_component.settings
+        @attributes ||= current_component.settings
       end
 
       def resize_iframe
