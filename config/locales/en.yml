@@ -1,6 +1,9 @@
 ---
 en:
   decidim:
+    admin:
+      actions:
+        manage: Manage
     components:
       iframe:
         name: Fullscreen Iframe
