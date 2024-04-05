@@ -24,6 +24,7 @@ Decidim::Iframe.register_component(:iframe) do |component|
 
   component.settings(:step) do |settings|
     # Add your settings per step
+    settings.attribute :announcement, type: :text, translated: true, editor: true
     settings.attribute :src, type: :string, default: ""
     settings.attribute :width, type: :string, default: "100%"
     settings.attribute :frameborder, type: :integer, default: "0"

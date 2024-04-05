@@ -1,6 +1,9 @@
 ---
 en:
   decidim:
+    admin:
+      actions:
+        manage: Manage
     components:
       iframe:
         name: Fullscreen Iframe
@@ -11,8 +14,7 @@ en:
             frameborder_help: Set to value "1" for a border around the element, set
               value "0" for no border.
             height: Content height
-            height_help: Height of the Iframe element.
-            no_margins: No margins between the iframe and the rest of the page
+            height_help: Height of the Iframe element in pixels, e.g. "250px".
             resize_iframe: Resize Iframe
             resize_iframe_options:
               manual: Resize manually
@@ -28,8 +30,6 @@ en:
             frameborder: Content frameborder
             frameborder_help: Set to value "1" for a border around the element, set
               value "0" for no border.
-            height: Content height
-            height_help: Height of the Iframe element.
             src: Content source
             src_help: Insert the path for the source content that will be displayed
               in the Iframe.
