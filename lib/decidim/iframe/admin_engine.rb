@@ -11,7 +11,6 @@ module Decidim
 
       routes do
         root to: "iframe#settings"
-        get "manage", to: "iframe#settings"
       end
 
       initializer "decidim_iframe.admin_mount_routes" do
