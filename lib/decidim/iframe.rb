@@ -9,6 +9,6 @@ require "decidim/iframe/admin_engine"
 
 Decidim.register_global_engine(
   :decidim_iframe, # this is the name of the global method to access engine routes
-  ::Decidim::Iframe::Engine,
+  Decidim::Iframe::Engine,
   at: "/iframe"
 )

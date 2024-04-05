@@ -8,19 +8,19 @@ require "selenium-webdriver"
 
 module Decidim
   Capybara.register_driver :headless_chrome do |app|
-    options = ::Selenium::WebDriver::Chrome::Options.new
-    options.args << "--headless=new"
-    options.args << "--no-sandbox"
-    options.args << if ENV["BIG_SCREEN_SIZE"].present?
-                      "--window-size=1920,3000"
-                    else
-                      "--window-size=1920,1080"
-                    end
-    options.args << "--ignore-certificate-errors" if ENV["TEST_SSL"]
+    options = Selenium::WebDriver::Chrome::Options.new
+
+    options.add_argument("--headless") if ENV["HEADLESS"]
+    options.add_argument("--no-sandbox")
+
+    window_size = ENV["BIG_SCREEN_SIZE"].present? ? "1920,3000" : "1920,1080"
+    options.add_argument("--window-size=#{window_size}")
+
+    options.add_argument("--ignore-certificate-errors") if ENV["TEST_SSL"]
     Capybara::Selenium::Driver.new(
       app,
       browser: :chrome,
-      capabilities: [options]
+      options:
     )
   end
 end

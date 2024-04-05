@@ -6,9 +6,6 @@ module Decidim
     class AdminEngine < ::Rails::Engine
       isolate_namespace Decidim::Iframe
 
-      paths["db/migrate"] = nil
-      paths["lib/tasks"] = nil
-
       routes do
         root to: "iframe#settings"
       end

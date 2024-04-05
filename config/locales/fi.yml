@@ -1,35 +1,36 @@
 ---
 fi:
   decidim:
+    admin:
+      actions:
+        manage: Hallinnoi
     components:
       iframe:
         name: Koko näytön Iframe -elementti
         settings:
           global:
             announcement: Ilmoitus
-            src: Sisällön lähde
-            src_help: 'Syötä Iframe -elementin sisällön lähteen polku.'
-            width: Sisällön leveys
-            width_help: 'Käytä 100% leveyttä täyttääksesi näytön.'
-            height: Sisällön korkeus
-            height_help: 'Iframe -elementin korkeus.'
             frameborder: Sisällön kehys
             frameborder_help: 'Aseta arvo "1" lisätäksesi kehys Iframe -elementille,
               aseta arvo "0" jos et halua kehystä.'
-            no_margins: Ei reunuksia Iframe -elementin ja muun sivuston välissä
-            viewport_width: Rajaa maksimi-leveys sovelluksen ikkunaan
+            height: Sisällön korkeus
+            height_help: 'Iframe -elementin korkeus.'
             resize_iframe: Iframe -elementin koko
             resize_iframe_options:
               responsive: Automaattinen koko
               manual: Manuaalinen koko
+            src: Sisällön lähde
+            src_help: 'Syötä Iframe -elementin sisällön lähteen polku.'
+            viewport_width: Rajaa maksimi-leveys sovelluksen ikkunaan
+            width: Sisällön leveys
+            width_help: 'Käytä 100% leveyttä täyttääksesi näytön.'
           step:
             announcement: Ilmoitus
+            frameborder: Sisällön kehys
+            frameborder_help: 'Aseta arvo "1" lisätäksesi kehys Iframe -elementille,
+              aseta arvo "0" jos et halua kehystä.'
             src: Sisällön lähde
             src_help: 'Syötä Iframe -elementin sisällön lähteen polku.'
             width: Sisällön leveys
             width_help: 'Käytä 100% leveyttä täyttääksesi näytön.'
-            height: Sisällön korkeus
-            height_help: 'Iframe -elementin korkeus.'
-            frameborder: Sisällön kehys
-            frameborder_help: 'Aseta arvo "1" lisätäksesi kehys Iframe -elementille,
-              aseta arvo "0" jos et halua kehystä.'
+

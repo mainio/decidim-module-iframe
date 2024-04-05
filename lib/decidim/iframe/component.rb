@@ -7,6 +7,9 @@ Decidim::Iframe.register_component(:iframe) do |component|
   component.admin_engine = Decidim::Iframe::AdminEngine
   component.icon = "media/images/decidim_meetings.svg" # TODO: create a Icon
 
+  # These actions permissions can be configured in the admin panel
+  # component.actions = %w()
+
   RESIZE_OPTIONS = %w(responsive manual).freeze
 
   component.settings(:global) do |settings|
@@ -16,14 +19,14 @@ Decidim::Iframe.register_component(:iframe) do |component|
     settings.attribute :src, type: :string, default: ""
     settings.attribute :width, type: :string, default: "100%"
     settings.attribute :frameborder, type: :integer, default: "0"
-    settings.attribute :viewport_width, type: :boolean, default: false
-    settings.attribute :no_margins, type: :boolean, default: false
     settings.attribute :resize_iframe, type: :select, default: "responsive", choices: -> { RESIZE_OPTIONS }
     settings.attribute :height, type: :string, default: ""
+    settings.attribute :viewport_width, type: :boolean, default: false
   end
 
   component.settings(:step) do |settings|
     # Add your settings per step
+    settings.attribute :announcement, type: :text, translated: true, editor: true
     settings.attribute :src, type: :string, default: ""
     settings.attribute :width, type: :string, default: "100%"
     settings.attribute :frameborder, type: :integer, default: "0"
@@ -44,7 +47,7 @@ Decidim::Iframe.register_component(:iframe) do |component|
       name: Decidim::Components::Namer.new(participatory_space.organization.available_locales, :iframe).i18n_name,
       manifest_name: :iframe,
       published_at: Time.current,
-      participatory_space: participatory_space,
+      participatory_space:,
       settings: {
         announcement: { en: Faker::Lorem.paragraphs(number: 2).join("\n") },
         src: "",

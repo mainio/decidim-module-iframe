@@ -2,41 +2,45 @@
 
 require "spec_helper"
 
-describe "Show iframe", type: :system do
+describe "Show iframe" do
   include_context "with a component"
   let(:manifest_name) { "iframe" }
 
-  let!(:user) { create :user, :confirmed, organization: organization }
+  let!(:user) { create(:user, :confirmed, organization:) }
   let(:settings) do
     {
-      announcement: announcement,
-      iframe: iframe,
-      no_margins: no_margins,
-      viewport_width: viewport_width
+      announcement:,
+      iframe:,
+      viewport_width:
     }
   end
 
   let(:iframe) { '<iframe src="https://test.test"></iframe>' }
-  let(:no_margins) { false }
   let(:viewport_width) { false }
   let(:announcement) { {} }
 
   before do
-    component.update!(settings: settings)
+    component.update!(settings:)
     visit_component
-    click_link "Change cookie settings"
-    click_button "Accept all"
+    click_link_or_button "Change cookie settings"
+    click_link_or_button "Accept all"
   end
 
   it "shows the iframe wrapper" do
-    within ".wrapper" do
-      expect(page).to have_selector(".iframe")
+    within "[data-content]" do
+      expect(page).to have_css(".iframe")
     end
   end
 
   it "shows the iframe" do
     within ".iframe" do
-      expect(page).to have_selector("iframe")
+      expect(page).to have_css("iframe")
+    end
+  end
+
+  it "adds the #html-block-html id" do
+    within "[data-content]" do
+      expect(page).to have_css("#html-block-html.iframe")
     end
   end
 
@@ -48,35 +52,8 @@ describe "Show iframe", type: :system do
     end
 
     it "shows the announcement" do
-      within ".wrapper" do
+      within "[data-content]" do
         expect(page).to have_content("I'm awesome!")
-      end
-    end
-  end
-
-  context "when no_margins is enabled" do
-    let(:no_margins) { true }
-
-    it "removes the css margin" do
-      expect(page).to have_selector(".wrapper")
-      expect(page.execute_script("return $('.wrapper').css('padding-left')")).to eq("0px")
-      expect(page.execute_script("return $('.wrapper').css('padding-right')")).to eq("0px")
-      expect(page.execute_script("return $('.wrapper').css('padding-bottom')")).to eq("0px")
-      expect(page.execute_script("return $('.wrapper').css('padding-top')")).to eq("0px")
-    end
-
-    context "and announcement is present" do
-      let(:announcement) do
-        {
-          en: "I'm awesome!"
-        }
-      end
-
-      it "has margin on top" do
-        expect(page.execute_script("return $('.wrapper').css('padding-left')")).to eq("0px")
-        expect(page.execute_script("return $('.wrapper').css('padding-right')")).to eq("0px")
-        expect(page.execute_script("return $('.wrapper').css('padding-bottom')")).to eq("0px")
-        expect(page.execute_script("return $('.wrapper').css('padding-top')")).not_to eq("0px")
       end
     end
   end
@@ -84,9 +61,22 @@ describe "Show iframe", type: :system do
   context "when viewport_width is enabled" do
     let(:viewport_width) { true }
 
-    it "adds the .row class" do
-      within ".wrapper" do
-        expect(page).to have_selector(".iframe.row")
+    it "adds the #iframe-block id" do
+      within "[data-content]" do
+        expect(page).to have_css("#iframe-block.iframe")
+      end
+    end
+  end
+
+  context "when iframe code contains a script in srcdoc" do
+    let(:iframe) { '<iframe srcdoc="<script>alert(\'XSS\');</script>"></iframe>' }
+
+    it "removes the script" do
+      within ".iframe" do
+        expect(page).to have_no_css("script")
+        expect(page).to have_css("iframe")
+        expect(page).to have_no_text("XSS")
+        expect { page.driver.browser.switch_to.alert }.to raise_error(Selenium::WebDriver::Error::NoSuchAlertError)
       end
     end
   end
