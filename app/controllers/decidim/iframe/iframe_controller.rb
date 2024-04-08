@@ -20,7 +20,7 @@ module Decidim
           frameborder=\"#{attributes.frameborder}\"></iframe>"
         when "manual"
           "<iframe id=\"iFrame\" src=\"#{attributes.src}\" width=\"#{attributes.width}\"
-          height=\"#{attributes.height}\"frameborder=\"#{attributes.frameborder}\"></iframe>"
+          height=\"#{attributes.height}px\"frameborder=\"#{attributes.frameborder}\"></iframe>"
         end
       end
 

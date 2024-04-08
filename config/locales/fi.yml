@@ -6,15 +6,14 @@ fi:
         manage: Hallinnoi
     components:
       iframe:
-        name: Koko näytön Iframe -elementti
+        name: Iframe
         settings:
           global:
             announcement: Ilmoitus
             frameborder: Sisällön kehys
-            frameborder_help: 'Aseta arvo "1" lisätäksesi kehys Iframe -elementille,
-              aseta arvo "0" jos et halua kehystä.'
             height: Sisällön korkeus
             height_help: 'Iframe -elementin korkeus.'
+            no_margins: Ei reunoja
             resize_iframe: Iframe -elementin koko
             resize_iframe_options:
               responsive: Automaattinen koko
@@ -24,13 +23,3 @@ fi:
             viewport_width: Rajaa maksimi-leveys sovelluksen ikkunaan
             width: Sisällön leveys
             width_help: 'Käytä 100% leveyttä täyttääksesi näytön.'
-          step:
-            announcement: Ilmoitus
-            frameborder: Sisällön kehys
-            frameborder_help: 'Aseta arvo "1" lisätäksesi kehys Iframe -elementille,
-              aseta arvo "0" jos et halua kehystä.'
-            src: Sisällön lähde
-            src_help: 'Syötä Iframe -elementin sisällön lähteen polku.'
-            width: Sisällön leveys
-            width_help: 'Käytä 100% leveyttä täyttääksesi näytön.'
-
