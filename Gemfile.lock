@@ -4,8 +4,6 @@ PATH
     decidim-iframe (0.27.0)
       decidim-admin (= 0.27.5)
       decidim-core (= 0.27.5)
-      deface (>= 1.5)
-      sassc (~> 2.3)
 
 GEM
   remote: https://rubygems.org/
@@ -155,7 +153,7 @@ GEM
       bigdecimal
       rexml
     crass (1.0.6)
-    css_parser (1.16.0)
+    css_parser (1.17.1)
       addressable
     date (3.3.4)
     date_validator (0.12.0)
@@ -334,12 +332,6 @@ GEM
     declarative-builder (0.1.0)
       declarative-option (< 0.2.0)
     declarative-option (0.1.0)
-    deface (1.9.0)
-      actionview (>= 5.2)
-      nokogiri (>= 1.6)
-      polyglot
-      railties (>= 5.2)
-      rainbow (>= 2.1.0)
     descendants_tracker (0.0.4)
       thread_safe (~> 0.3, >= 0.3.1)
     devise (4.9.3)
@@ -450,7 +442,7 @@ GEM
       ruby-vips (>= 2.0.17, < 3)
     invisible_captcha (0.13.0)
       rails (>= 3.2.0)
-    json (2.7.1)
+    json (2.7.2)
     jwt (2.8.1)
       base64
     kaminari (1.2.2)
@@ -576,7 +568,6 @@ GEM
     pg_search (2.3.6)
       activerecord (>= 5.2)
       activesupport (>= 5.2)
-    polyglot (0.3.5)
     premailer (1.23.0)
       addressable
       css_parser (>= 1.12.0)
@@ -636,7 +627,7 @@ GEM
       rake (>= 12.2)
       thor (~> 1.0)
     rainbow (3.1.1)
-    rake (13.2.0)
+    rake (13.2.1)
     ransack (2.4.2)
       activerecord (>= 5.2.4)
       activesupport (>= 5.2.4)
@@ -716,8 +707,6 @@ GEM
     sass-listen (4.0.0)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
-    sassc (2.4.0)
-      ffi (~> 1.9)
     selenium-webdriver (4.1.0)
       childprocess (>= 0.5, < 5.0)
       rexml (~> 3.2, >= 3.2.5)

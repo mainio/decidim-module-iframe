@@ -10,9 +10,24 @@ en:
         settings:
           global:
             announcement: Announcement
+            content_height: Content height
+            content_height_help: In order to use the automatic height calculation,
+              your iframe provider has to support the iframe-resizer JavaScript library.
+              Please confirm from your iframe provider that they support this library
+              before using the automatic height option. Read more about how to support
+              this library from the iframe-resizer documentation.
+            content_height_options:
+              '16:9': '16:9'
+              '4:3': '4:3'
+              auto: Automatic height
+              manual_pixel: Manual height in pixels
+            content_width: Content width
+            content_width_options:
+              full_width: Full width
+              manual_percentage: Manual width as a percentage
+              manual_pixel: Manual width in pixels
             frameborder: Content frameborder
-            height: Content height
-            height_help: Height of the Iframe element in pixels.
+            height_value: Height value
             no_margins: No margins
             resize_iframe: Resize Iframe
             resize_iframe_options:
@@ -22,5 +37,4 @@ en:
             src_help: Insert the path for the source content that will be displayed
               in the Iframe.
             viewport_width: Limit maximum width to the application viewport
-            width: Content width
-            width_help: Ensure to use 100% as width to fill the screen.
+            width_value: Width value
