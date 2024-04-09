@@ -43,9 +43,11 @@ Decidim::Iframe.register_component(:iframe) do |component|
       settings: {
         announcement: { en: Faker::Lorem.paragraphs(number: 2).join("\n") },
         src: "",
-        frameborder: "0",
-        resize_iframe: "responsive",
-        height: ""
+        content_width: "full_width",
+        content_height: "16:9",
+        frameborder: false,
+        viewport_width: true,
+        no_margins: false
       }
     }
 
