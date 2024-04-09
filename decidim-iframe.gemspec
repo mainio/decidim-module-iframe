@@ -20,8 +20,6 @@ Gem::Specification.new do |s|
 
   s.add_dependency "decidim-admin", Decidim::Iframe.decidim_version
   s.add_dependency "decidim-core", Decidim::Iframe.decidim_version
-  s.add_dependency "deface", ">= 1.5"
-  s.add_dependency "sassc", "~> 2.3" # TODO: check if this can be removed
 
   s.metadata["rubygems_mfa_required"] = "true"
 end

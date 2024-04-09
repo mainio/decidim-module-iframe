@@ -10,17 +10,19 @@ Decidim::Iframe.register_component(:iframe) do |component|
   # These actions permissions can be configured in the admin panel
   # component.actions = %w()
 
-  RESIZE_OPTIONS = %w(responsive manual).freeze
+  HEIGHT_OPTIONS = %w(16:9 4:3 auto manual_pixel).freeze
+  WIDTH_OPTIONS = %w(full_width manual_pixel manual_percentage).freeze
 
   component.settings(:global) do |settings|
     # Add your global settings
     # Available types: :integer, :boolean
     settings.attribute :announcement, type: :text, translated: true, editor: true
     settings.attribute :src, type: :string, default: ""
-    settings.attribute :width, type: :string, default: "100%"
+    settings.attribute :content_width, type: :select, default: "full_width", choices: -> { WIDTH_OPTIONS }
+    settings.attribute :width_value, type: :integer
+    settings.attribute :content_height, type: :select, default: "16:9", choices: -> { HEIGHT_OPTIONS }
+    settings.attribute :height_value, type: :integer
     settings.attribute :frameborder, type: :boolean, default: false
-    settings.attribute :resize_iframe, type: :select, default: "responsive", choices: -> { RESIZE_OPTIONS }
-    settings.attribute :height, type: :integer, default: 0
     settings.attribute :viewport_width, type: :boolean, default: true
   end
 
@@ -43,10 +45,10 @@ Decidim::Iframe.register_component(:iframe) do |component|
       settings: {
         announcement: { en: Faker::Lorem.paragraphs(number: 2).join("\n") },
         src: "",
-        width: "100%",
+        content_width: "full_width",
+        content_height: "16:9",
         frameborder: false,
-        resize_iframe: "responsive",
-        height: ""
+        viewport_width: true
       }
     }
 

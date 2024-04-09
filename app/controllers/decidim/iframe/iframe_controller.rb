@@ -3,7 +3,7 @@
 module Decidim
   module Iframe
     class IframeController < Iframe::BlankComponentController
-      helper_method :iframe, :remove_margins?, :viewport_width?, :resize_iframe
+      helper_method :iframe, :remove_margins?, :viewport_width?
       before_action :add_additional_csp_directives, only: :show
 
       def show; end
@@ -17,13 +17,19 @@ module Decidim
       end
 
       def element
-        case resize_iframe
-        when "responsive"
-          "<iframe id=\"iFrame\" src=\"#{attributes.src}\" width=\"#{attributes.width}\"
+        case content_height
+        when "16:9"
+          "<iframe id=\"iFrame\" class=\"aspect-ratio-16-9\" src=\"#{attributes.src}\" width=\"#{content_width}\"
           frameborder=\"#{attributes.frameborder}\"></iframe>"
-        when "manual"
-          "<iframe id=\"iFrame\" src=\"#{attributes.src}\" width=\"#{attributes.width}\"
-          height=\"#{attributes.height}\"frameborder=\"#{attributes.frameborder}\"></iframe>"
+        when "4:3"
+          "<iframe id=\"iFrame\" class=\"aspect-ratio-4-3\" src=\"#{attributes.src}\" width=\"#{content_width}\"
+          frameborder=\"#{attributes.frameborder}\"></iframe>"
+        when "auto"
+          "<iframe id=\"iFrame\" src=\"#{attributes.src}\" width=\"#{content_width}\"
+          frameborder=\"#{attributes.frameborder}\"></iframe>"
+        when "manual_pixel"
+          "<iframe id=\"iFrame\" src=\"#{attributes.src}\" width=\"#{content_width}\"
+          height=\"#{attributes.height_value}px\"frameborder=\"#{attributes.frameborder}\"></iframe>"
         end
       end
 
@@ -31,13 +37,24 @@ module Decidim
         @attributes ||= current_component.settings
       end
 
-      def resize_iframe
-        attributes.resize_iframe
+      def content_height
+        attributes.content_height
+      end
+
+      def content_width
+        case attributes.content_width
+        when "full_width"
+          "100%"
+        when "manual_pixel"
+          "#{attributes.width_value}px"
+        when "manual_percentage"
+          "#{attributes.width_value}%"
+        end
       end
 
       def sanitize(html)
         sanitizer = Rails::Html::SafeListSanitizer.new
-        partially_sanitized_html = sanitizer.sanitize(html, tags: %w(iframe), attributes: %w(src id width height frameborder))
+        partially_sanitized_html = sanitizer.sanitize(html, tags: %w(iframe), attributes: %w(src id width height frameborder class))
         document = Nokogiri::HTML::DocumentFragment.parse(partially_sanitized_html)
         document.css("iframe").each do |iframe|
           iframe["srcdoc"] = Loofah.fragment(iframe["srcdoc"]).scrub!(:prune).to_s if iframe["srcdoc"]
