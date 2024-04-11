@@ -8,7 +8,3 @@ ENV["NODE_ENV"] ||= "test"
 Decidim::Dev.dummy_app_path = File.expand_path(File.join(__dir__, "decidim_dummy_app"))
 
 require "decidim/dev/test/base_spec_helper"
-
-# This re-registration is made because of problems with chromedriver v.120
-# Selenium methods are undefined without this change
-# More info in PR #12160
