@@ -1,9 +1,6 @@
 ---
 fi:
   decidim:
-    admin:
-      actions:
-        manage: Hallinnoi
     components:
       iframe:
         name: Iframe
