@@ -1,9 +1,6 @@
 ---
 fi:
   decidim:
-    admin:
-      actions:
-        manage: Hallinnoi
     components:
       iframe:
         name: Iframe
@@ -17,9 +14,9 @@ fi:
               manual_percentage: Leveys prosenteissa
             content_height: Sisällön korkeus
             content_height_help: Käyttääksesi automaattista korkeuden säätelyä, tarvitsee iframe -tarjoajasi tukea
-                                 iframe-resizer Javascript -kirjastoa. Varmista iframe -tarjoajaltasi tämän kirjaston
-                                 tukeminen ennen automaattisen korkeuden säädön käyttöä. Katso iframe-resizer
-                                 dokumentaatio lukeaksesi lisää tämän kirjaston tukemisesta.
+              iframe-resizer Javascript -kirjastoa. Varmista iframe -tarjoajaltasi tämän kirjaston
+              tukeminen ennen automaattisen korkeuden säädön käyttöä. Katso iframe-resizer
+              dokumentaatio lukeaksesi lisää tämän kirjaston tukemisesta.
             content_height_options:
               "16:9": "16:9"
               "4:3": "4:3"
@@ -27,7 +24,6 @@ fi:
               manual_pixel: Korkeus pikseleissä
             frameborder: Sisällön kehys
             height_value: Korkeusarvo
-            no_margins: Ei reunoja
             resize_iframe: Iframe -elementin koko
             resize_iframe_options:
               responsive: Automaattinen koko

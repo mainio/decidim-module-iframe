@@ -1,9 +1,6 @@
 ---
 en:
   decidim:
-    admin:
-      actions:
-        manage: Manage
     components:
       iframe:
         name: Iframe
@@ -28,7 +25,6 @@ en:
               manual_pixel: Manual width in pixels
             frameborder: Content frameborder
             height_value: Height value
-            no_margins: No margins
             resize_iframe: Resize Iframe
             resize_iframe_options:
               manual: Resize manually

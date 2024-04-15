@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
   s.email = ["joonas.aapro@mainiotech.fi"]
   s.license = "AGPL-3.0"
   s.homepage = "https://github.com/mainio/decidim-module-iframe"
-  s.required_ruby_version = ">= 3.0"
+  s.required_ruby_version = ">= 3.1"
 
   s.name = "decidim-iframe"
   s.summary = "A decidim iframe module"
@@ -21,6 +21,5 @@ Gem::Specification.new do |s|
   s.add_dependency "decidim-admin", Decidim::Iframe.decidim_version
   s.add_dependency "decidim-core", Decidim::Iframe.decidim_version
 
-  s.add_development_dependency "decidim-dev", Decidim::Iframe.decidim_version
   s.metadata["rubygems_mfa_required"] = "true"
 end

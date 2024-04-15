@@ -3,7 +3,10 @@
 module Decidim
   module Iframe
     class IframeController < Iframe::BlankComponentController
-      helper_method :iframe, :remove_margins?, :viewport_width?, :content_height
+      helper_method :iframe, :remove_margins?, :viewport_width?
+      before_action :add_additional_csp_directives, only: :show
+
+      def show; end
 
       private
 
@@ -51,7 +54,13 @@ module Decidim
 
       def sanitize(html)
         sanitizer = Rails::Html::SafeListSanitizer.new
-        sanitizer.sanitize(html, tags: %w(iframe), attributes: %w(src id width height frameborder class))
+        partially_sanitized_html = sanitizer.sanitize(html, tags: %w(iframe), attributes: %w(src id width height frameborder class))
+        document = Nokogiri::HTML::DocumentFragment.parse(partially_sanitized_html)
+        document.css("iframe").each do |iframe|
+          iframe["srcdoc"] = Loofah.fragment(iframe["srcdoc"]).scrub!(:prune).to_s if iframe["srcdoc"]
+        end
+
+        document.to_s
       end
 
       def remove_margins?
@@ -60,6 +69,15 @@ module Decidim
 
       def viewport_width?
         attributes.viewport_width
+      end
+
+      def add_additional_csp_directives
+        iframe_urls = Nokogiri::HTML::DocumentFragment.parse(iframe).children.select { |x| x.name == "iframe" }.filter_map { |x| x.attribute("src")&.value }
+        return if iframe_urls.blank?
+
+        iframe_urls.each do |url|
+          content_security_policy.append_csp_directive("frame-src", url)
+        end
       end
     end
   end
