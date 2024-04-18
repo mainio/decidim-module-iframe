@@ -22,7 +22,7 @@ sv:
               "4:3": "4:3"
               auto: Automatic height
               manual_pixel: Manual height in pixels
-            frameborder: Content frameborder
+            frameborder: Add border around the iframe
             height_value: Height value
             resize_iframe: Resize Iframe
             resize_iframe_options:
