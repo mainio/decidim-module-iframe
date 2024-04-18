@@ -14,8 +14,8 @@ en:
               before using the automatic height option. Read more about how to support
               this library from the iframe-resizer documentation.
             content_height_options:
-              '16:9': '16:9 aspect ratio'
-              '4:3': '4:3 aspect ratio'
+              '16:9': 16:9 aspect ratio
+              '4:3': 4:3 aspect ratio
               auto: Automatic height
               manual_pixel: Manual height in pixels
             content_width: Content width
