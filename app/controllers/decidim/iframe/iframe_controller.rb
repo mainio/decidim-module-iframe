@@ -16,22 +16,30 @@ module Decidim
       def element
         case content_height
         when "16:9"
-          "<iframe id=\"iFrame\" class=\"aspect-ratio-16-9\" src=\"#{attributes.src}\" width=\"#{content_width}\"
-          frameborder=\"#{attributes.frameborder}\"></iframe>"
+          "<iframe id=\"iFrame\" class=\"aspect-ratio-16\" src=\"#{attributes.src}\" width=\"#{content_width}\"
+          frameborder=\"#{frameborder?}\"></iframe>"
         when "4:3"
-          "<iframe id=\"iFrame\" class=\"aspect-ratio-4-3\" src=\"#{attributes.src}\" width=\"#{content_width}\"
-          frameborder=\"#{attributes.frameborder}\"></iframe>"
+          "<iframe id=\"iFrame\" class=\"aspect-ratio-4\" src=\"#{attributes.src}\" width=\"#{content_width}\"
+          frameborder=\"#{frameborder?}\"></iframe>"
         when "auto"
           "<iframe id=\"iFrame\" src=\"#{attributes.src}\" width=\"#{content_width}\"
-          frameborder=\"#{attributes.frameborder}\"></iframe>"
+          frameborder=\"#{frameborder?}\"></iframe>"
         when "manual_pixel"
           "<iframe id=\"iFrame\" src=\"#{attributes.src}\" width=\"#{content_width}\"
-          height=\"#{attributes.height_value}px\"frameborder=\"#{attributes.frameborder}\"></iframe>"
+          height=\"#{attributes.height_value}px\"frameborder=\"#{frameborder?}\"></iframe>"
         end
       end
 
       def attributes
         @attributes ||= current_component.settings
+      end
+
+      def frameborder?
+        if attributes.frameborder
+          "1"
+        else
+          "0"
+        end
       end
 
       def content_height

@@ -18,13 +18,13 @@ fi:
                                  tukeminen ennen automaattisen korkeuden säädön käyttöä. Katso iframe-resizer
                                  dokumentaatio lukeaksesi lisää tämän kirjaston tukemisesta.
             content_height_options:
-              "16:9": "16:9"
-              "4:3": "4:3"
+              "16:9": "16:9 kuvasuhde"
+              "4:3": "4:3 kuvasuhde"
               auto: Automaattinen korkeus
               manual_pixel: Korkeus pikseleissä
-            frameborder: Sisällön kehys
+            frameborder: Lisää kehys iframe -elementille
             height_value: Korkeusarvo
-            no_margins: Ei reunoja
+            no_margins: Poista reunat iframe -elementiltä
             resize_iframe: Iframe -elementin koko
             resize_iframe_options:
               responsive: Automaattinen koko
