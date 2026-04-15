@@ -3,7 +3,7 @@ import "src/decidim/admin/proposal_infinite_edit"
 import "src/decidim/admin/content_height_toggler"
 import "src/decidim/admin/content_width_toggler"
 
-// Overwrite core form.js file to import iframe_resize_toggler
+// Overwrite core form.js file to import content_width_toggler, content_height_toggler
 
 import BudgetRuleTogglerComponent from "src/decidim/admin/budget_rule_toggler.component"
 
