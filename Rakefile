@@ -3,9 +3,9 @@
 require "decidim/dev/common_rake"
 require "fileutils"
 
-def seed_db(path)
+def install_module(path)
   Dir.chdir(path) do
-    system("bundle exec rake db:seed")
+    system("npm i graphql@15.10.1")
   end
 end
 
@@ -17,11 +17,14 @@ desc "Generates a dummy app for testing"
 task test_app: "decidim:generate_external_test_app" do
   ENV["RAILS_ENV"] = "test"
   copy_helpers
+  install_module("spec/decidim_dummy_app")
 end
 
 desc "Generates a development app."
 task :development_app do
   Bundler.with_original_env do
+    ENV["DEV_APP_GENERATION"] = "true"
+
     generate_decidim_app(
       "development_app",
       "--app_name",
@@ -29,9 +32,10 @@ task :development_app do
       "--path",
       "..",
       "--recreate_db",
+      "--seed_db",
       "--demo"
     )
   end
 
-  seed_db("development_app")
+  install_module("development_app")
 end
