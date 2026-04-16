@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Show iframe" do
+describe "Iframe" do
   include_context "with a component"
   let(:manifest_name) { "iframe" }
 
