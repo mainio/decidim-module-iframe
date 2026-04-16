@@ -34,6 +34,7 @@
     }
   },
   "devDependencies": {
+    "@babel/eslint-parser": "^7.19.1",
     "@decidim/dev": "^0.28.6",
     "@decidim/eslint-config": "^0.28.6",
     "@decidim/prettier-config": "^0.28.6",
