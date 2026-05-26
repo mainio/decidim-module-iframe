@@ -4,11 +4,11 @@ module Decidim
   # This holds the decidim-iframe version.
   module Iframe
     def self.version
-      "0.29.0"
+      "0.30.0"
     end
 
     def self.decidim_version
-      "~> 0.29.0"
+      "~> 0.30.0"
     end
   end
 end
