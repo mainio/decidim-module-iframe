@@ -7,6 +7,9 @@ import "src/decidim/admin/content_width_toggler"
 
 import BudgetRuleTogglerComponent from "src/decidim/admin/budget_rule_toggler.component"
 
+// Checks if the form contains fields with special CSS classes added in
+// Decidim::Admin::SettingsHelper and acts accordingly.
+
 $(() => {
   const budgetRuleToggler = new BudgetRuleTogglerComponent({
     ruleCheckboxes: $("input[id^='component_settings_vote_rule_']")
@@ -21,6 +24,16 @@ $(() => {
     return false;
   });
 
+  // Target fields:
+  // - amendments_wizard_help_text
+  // - amendments_visibility
+  // - amendment_creation_enabled
+  // - amendment_reaction_enabled
+  // - amendment_promotion_enabled
+
+  // (1) Hides target fields if amendments_enabled component setting is NOT checked.
+  // (2) Toggles visibility of target fields when amendments_enabled component setting is clicked.
+
   const $amendmentsEnabled = $("input#component_settings_amendments_enabled");
 
   if ($amendmentsEnabled.length > 0) {
@@ -34,4 +47,21 @@ $(() => {
       $amendmentStepSettings.toggle();
     });
   }
+
+  // Toggles visibility of the attachments_allowed help text when the checkbox is clicked.
+  // Show the help text if the checkbox is checked.
+  const $attachmentsAllowedCheckbox = $("#component_settings_attachments_allowed");
+  const $attachmentsHelpText = $(".attachments_allowed_container .help-text");
+
+  if (!$attachmentsAllowedCheckbox.is(":checked")) {
+    $attachmentsHelpText.hide();
+  }
+
+  $attachmentsAllowedCheckbox.on("change", () => {
+    if ($attachmentsAllowedCheckbox.is(":checked")) {
+      $attachmentsHelpText.show();
+    } else {
+      $attachmentsHelpText.hide();
+    }
+  });
 });
