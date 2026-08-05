@@ -22,7 +22,7 @@ module Decidim
       describe "GET show" do
         context "when everything is ok" do
           it "renders the show page" do
-            get :show, params: { component_id: component.id, assembly_slug: component.participatory_space.slug }
+            get :show, params: { component_id: component.id, initiative_slug: component.participatory_space.slug }
             expect(response).to have_http_status(:ok)
             expect(subject).to render_template(:show)
           end

@@ -5,7 +5,7 @@ shared_examples "a blank component" do |engine|
 
   describe "GET settings" do
     it "redirects to settings" do
-      get :settings, params: { component_id: component, assembly_slug: component.participatory_space.slug }
+      get :settings, params: { component_id: component, initiative_slug: component.participatory_space.slug }
       expect(response).to have_http_status(:redirect)
       expect(response.location).to include("#{component.id}/edit")
     end
