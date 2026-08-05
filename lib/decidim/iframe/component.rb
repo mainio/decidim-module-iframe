@@ -18,9 +18,9 @@ Decidim::Iframe.register_component(:iframe) do |component|
     # Available types: :integer, :boolean
     settings.attribute :announcement, type: :text, translated: true, editor: true
     settings.attribute :src, type: :string, default: ""
-    settings.attribute :content_width, type: :select, default: "full_width", choices: -> { WIDTH_OPTIONS }
+    settings.attribute :content_width, type: :select, default: "full_width", choices: ->(_context) { WIDTH_OPTIONS }
     settings.attribute :width_value, type: :integer
-    settings.attribute :content_height, type: :select, default: "16:9", choices: -> { HEIGHT_OPTIONS }
+    settings.attribute :content_height, type: :select, default: "16:9", choices: ->(_context) { HEIGHT_OPTIONS }
     settings.attribute :height_value, type: :integer
     settings.attribute :frameborder, type: :boolean, default: false
     settings.attribute :viewport_width, type: :boolean, default: true
