@@ -2,10 +2,10 @@
 
 base_path = File.expand_path("..", __dir__)
 
-Decidim::Webpacker.register_path("#{base_path}/app/packs", prepend: true)
+Decidim::Shakapacker.register_path("#{base_path}/app/packs", prepend: true)
 
-Decidim::Webpacker.register_entrypoints(
+Decidim::Shakapacker.register_entrypoints(
   decidim_iframe: "#{base_path}/app/packs/entrypoints/decidim_iframe.scss"
 )
 
-Decidim::Webpacker.register_stylesheet_import("stylesheets/decidim/iframe/iframe")
+Decidim::Shakapacker.register_stylesheet_import("stylesheets/decidim/iframe/iframe")
