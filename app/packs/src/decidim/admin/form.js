@@ -1,3 +1,4 @@
+/* eslint-disable import/no-unresolved */
 import "src/decidim/admin/proposal_infinite_edit"
 import "src/decidim/admin/content_height_toggler"
 import "src/decidim/admin/content_width_toggler"
