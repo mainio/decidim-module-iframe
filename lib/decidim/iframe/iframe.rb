@@ -2,8 +2,6 @@
 
 module Decidim
   module Iframe
-    include ActiveSupport::Configurable
-
     def self.registered_components
       @registered_components ||= []
     end
