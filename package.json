@@ -28,10 +28,7 @@
   },
   "homepage": "https://github.com/mainio/decidim-module-iframe#readme",
   "stylelint": {
-    "extends": "@decidim/stylelint-config",
-    "rules": {
-      "block-opening-brace-space-before": "always"
-    }
+    "extends": "@decidim/stylelint-config"
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.19.1",
