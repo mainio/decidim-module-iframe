@@ -6,7 +6,9 @@ module Decidim
       helper_method :iframe, :remove_margins?, :viewport_width?
       before_action :add_additional_csp_directives, only: :show
 
-      def show; end
+      def show
+        enforce_permission_to :read, :iframe, iframe: @iframe
+      end
 
       private
 
